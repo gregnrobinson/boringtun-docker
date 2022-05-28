@@ -5,7 +5,7 @@ COPY boringtun .
 RUN cargo build --release \
     && strip ./target/release/boringtun
 
-FROM debian:buster-slim
+FROM debian:10.12-slim
 
 WORKDIR /app
 COPY --from=builder /src/target/release/boringtun /app
